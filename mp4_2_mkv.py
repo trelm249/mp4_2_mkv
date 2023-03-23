@@ -6,7 +6,7 @@ import subprocess
 
 dir_path = getcwd()
 file_list = listdir(dir_path)
-#mp4_files = Path(dir_path).glob('*.mp4')
+# mp4_files = Path(dir_path).glob('*.mp4')
 mp4_files = glob.glob("*.mp4")
 
 if not glob.glob("*.mp4"):
@@ -24,9 +24,17 @@ for file_name in mp4_files:
     print(output_name)
     try:
         subprocess.run(
-            ['ffmpeg', '-i', f"{file_name}", '-c',  'copy', '-map', '0',
-            f"{output_name}"], check=True
+            [
+                "ffmpeg",
+                "-i",
+                f"{file_name}",
+                "-c",
+                "copy",
+                "-map",
+                "0",
+                f"{output_name}",
+            ],
+            check=True,
         )
-    except:
+    except Exception:
         raise Exception("FFMPEG is not present")
-
