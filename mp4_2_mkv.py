@@ -1,6 +1,6 @@
 """ remux mp4 to mkv """
 
-from os import getcwd, listdir, path
+from os import getcwd, listdir
 import glob
 import subprocess
 
